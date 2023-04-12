@@ -1,6 +1,7 @@
 # kbulk
 
-A cli to perform common Kafka operations in bulk mode, so you don't need to run commands one by one or create your own scripts for that.
+A CLI that wraps kafka native CLIs to perform common operations in bulk mode, so you don't need to run commands one by 
+one or create your own scripts for that.
 
 ```shell
 kbulk - A kafka tool to perform different bulk actions
@@ -27,6 +28,16 @@ in your `PATH`.
 
 Appart from that there isn't any special Dependencies.
 
+## Installation
+
+Run the setup script:
+
+```bash
+curl -s https://raw.githubusercontent.com/vicrdguez/kbulk/main/setup | bash
+```
+
+Feel free to inspect the installation script. If you prefer you can download the `kbulk` executable manually from github 
+and then add it to a directory in your `PATH`
 
 ## Bulked commands
 ### replicas

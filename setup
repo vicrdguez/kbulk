@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+green() {
+	local color="\e[32m"
+	printf "$color%b\e[0m\n" "$*"
+}
+
+echo "=====> downloading kbulk executable to /usr/local/bin/kbulk"
+CURL_COMMAND="curl -s https://raw.githubusercontent.com/vicrdguez/kbulk/main/kbulk > /usr/local/bin/kbulk"
+if [[ $EUID -ne 0 ]]; then
+	sudo bash -c "$CURL_COMMAND"
+	sudo chmod a+x /usr/local/bin/kbulk
+else
+	bash -c "$CURL_COMMAND"
+	chmod a+x /usr/local/bin/kbulk
+fi
+
+if type kbulk >/dev/null; then
+	green "=====> Setup complete. Type 'kbulk --help' for more info."
+
+else
+	echo "=====> Setup failed."
+	exit 1
+fi
