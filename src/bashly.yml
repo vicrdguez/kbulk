@@ -1,0 +1,39 @@
+name: kbulk
+help: A kafka tool to perform different bulk actions
+version: 0.1.0
+
+commands:
+- name: replicas
+  alias: r
+  help: Bulk change a topic replication factor
+
+  args:
+  - name: topics
+    required: true
+    help: Text file with the list of topics to change
+  - name: target
+    required: true
+    help: Target number of replicas. If --brokers is not specified, the replicas will be placed in random nodes
+
+  flags:
+  - long: --brokers
+    short: -n
+    help: Comma separated list of broker nodes where to place the replicas instead of choosing the nodes randomly
+    arg: id
+  - long: --bootstrap
+    short: -b
+    arg: server
+    required: true
+    help: Kafka bootstrap server
+  - long: --config
+    short: -c
+    arg: properties
+    help: Kafka client configuration file (a .properties file)
+
+  examples:
+  - kbulk replicas topics.txt 4 --bootstrap localhost:9092 --config client.properties
+  - kbulk replicas topics.txt 3 --bootstrap localhost:9092 --config client.properties --brokers 1,2,3
+
+  environment_variables:
+  - name: kbulk_bootstrap
+    help: Set the Kafka bootstrap server to use
