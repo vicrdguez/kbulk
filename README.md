@@ -91,3 +91,14 @@ Examples:
   --brokers 1,2,3
 ```
 
+## Contribution and support
+The scripts is not perfect and might have some quirks. Do not hesitate to open an issue if you encounter any issue
+or have any questions.
+
+PRs and suggestions are always welcomed.
+
+----
+
+This tools are built using [bashly](https://github.com/DannyBen/bashly) as the CLI framework.
+
+
